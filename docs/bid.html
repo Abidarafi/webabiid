@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abid Muhammad Arafi's Personal Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            scroll-behavior: smooth; /* Smooth scroll */
+        }
+
+        header {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #3498db; /* Hover effect */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #2a5298;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #1e3c72;
+        }
+
+        /* Loading Screen */
+        #loading {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-size: 18px;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #content {
+            display: none;
+        }
+
+        .contact-icons a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .contact-icons a:hover {
+            color: #3498db;
+        }
+
+        /* Custom Styles */
+        .gallery-video {
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            display: block;
+            border: 4px solid white;
+            border-radius: 8px;
+        }
+
+        .gallery-images img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-section, .blog-section, .quote-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .testimonial-section h2, .blog-section h2, .quote-section h2 {
+            text-align: center;
+        }
+
+        .quote-section blockquote {
+            font-style: italic;
+            font-size: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            color: #f5f5f5;
+            position: relative;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+        }
+
+        .quote-section blockquote footer {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #f5f5f5;
+        }
+
+        .quote-section blockquote:before {
+            content: open-quote;
+            font-size: 50px;
+            color: #3498db;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+        }
+
+        .quote-section blockquote:after {
+            content: close-quote;
+            font-size: 50px;
+            color: #3498db;
+            position: absolute;
+            right: 10px;
+            bottom: -10px;
+        }
+
+        footer {
+            background-color: #1e3c72;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div class="loader"></div>
+        <p>Welcome to Abid's website</p>
+    </div>
+    <div id="content">
+        <header>
+            <h1>Welcome to My Personal Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="home">
+                <h2>About Me</h2>
+                <p>Hi, I'm Abid Muhammad Arafi, a student at Institut Teknologi PLN majoring in Information Systems. I am also a Multimedia Laboratory Assistant and I am a passionate student with a strong leadership spirit. Since the beginning of my academic journey, I have
+                    successfully led various projects and activities on campus. With good communication skills, the ability to inspire,
+                    and a focus on results, I am confident that my leadership can have a positive impact on any challenge. I am
+                    committed to continuing to develop and apply these leadership skills, and make meaningful contributions in any
+                    work environment or team in the future.</p>
+                <img src="profile photo.jpg" alt="Abid Muhammad Arafi" style="max-width: 300px; border-radius: 50%; margin: 20px 0;">
+            </section>
+            <section id="achievements">
+                <h2>My Achievements</h2>
+                <table>
+                    <tr>
+                        <th>Year</th>
+                        <th>Achievement</th>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>Kepala Departemen DAGRI (Dalam Negri) HIMASI (Himpunan Mahasiswa Sistem Informasi)</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>Asisten Multimedia <br> Konselor Sebaya ITPLN <br> Mentor Karisma 2023 <br> Co-mentor Energize <br> Ketua Pelaksana Dies Natalis HIMASI <br> Penerima Beasiswa Prestasi PLN 2023</td>
+                    </tr>
+                </table>
+            </section>
+            <section id="gallery">
+                <h2>My Gallery</h2>
+                <section class="gallery-images">
+                    <h3>Images</h3>
+                    <img src="foto 1.jpg" alt="Image 1" style="max-width: 300px; margin: 20px 0;">
+                </section>
+                <section>
+                    <h3>Below is a video of me taking part in the 2023 MLEB TMII public speaking competition</h3>
+                    <video controls class="gallery-video">
+                        <source src="video abid.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </section>
+            </section>
+            <section id="testimonials" class="testimonial-section">
+                <h2>Testimonials</h2>
+                <p>"Abid is an exemplary leader who has a remarkable ability to inspire and motivate others. His contributions have been invaluable." -Ibnu Rasyid Alfaiz</p>
+                <p>"Working with Abid has been a pleasure. His dedication and commitment to excellence are truly inspiring." -Nurwahyuni Syamsul</p>
+            </section>
+            <section id="blog" class="blog-section">
+                <h2>My Blog</h2>
+                <article>
+                    <h3>•How I Overcame Challenges in My Academic Journey</h3>
+                </article>
+                <article>
+                    <h3>•Leadership Lessons Learned from Campus Projects</h3>
+                </article>
+            </section>
+            <section id="inspirational-quotes" class="quote-section">
+                <h2>Inspirational Quotes</h2>
+                <blockquote>
+                    "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful."
+                    <footer>- Albert Schweitzer</footer>
+                </blockquote>
+            </section>
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <div class="contact-icons">
+                    <a href="mailto:abidmuhammadarafi519@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    <a href="https://abidarafi.github.io/pendaftaran-Anggota-Klub-Olahraga-/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/082117388237"><i class="fas fa-phone"></i></a>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Abid Muhammad Arafi</p>
+            <a href="#home">Home</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            }, 3000); // Adjust the timeout value as needed
+        });
+    </script>
+</body>
+</html>
